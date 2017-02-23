@@ -1,0 +1,9 @@
+{
+  "name": "javabucks",
+  "script": "./server/index.js",
+  "exec_mode": "fork",
+  "instances": 5,
+  "env": {
+        "NODE_ENV":"production"
+  }
+}

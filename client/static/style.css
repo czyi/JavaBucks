@@ -1,0 +1,93 @@
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'), local('MaterialIcons-Regular'), url(icons.woff2) format('woff2');
+}
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+	height: 100%;
+}
+body {
+	margin: 0;
+	font-family: Consolas, 黑体, sans-serif;
+}
+#main {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+#main header {
+	padding: 15px 0;
+	text-align: center;
+	font-size: 24px;
+	height: 24px;
+	line-height: 24px;
+	background: #f46;
+	color: #fff;
+}
+#main > .mdl-tabs {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+#main .mdl-tabs__panel.is-active {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+#main #jb-map,
+#main #jb-list {
+	flex: 1;
+	overflow: auto;
+}
+#main #jb-map .anchorBL {
+	display: none;
+}
+#main .buck-card {
+	margin: 0 auto 24px auto;
+	min-height: initial;
+}
+#main .buck-card:first-child {
+	margin-top: 24px;
+}
+#main .buck-card .mdl-card__title {
+	background: url('./buck.jpg');
+	background-size: cover;
+	color: #fff;
+	justify-content: flex-end;
+}
+#main .mdl-card__title-text,
+#main .mdl-snackbar,
+#main .mdl-button {
+	font-family: Consolas, 黑体, sans-serif;
+}
+#main .mdl-card__supporting-text {
+	line-height: 1.4;
+}
+#main #jb-enter {
+	position: fixed;
+	left: 24px;
+	bottom: 24px;
+	z-index: 2;
+	font-weight: bold;
+	background: #f46;
+}
+#main form > .mdl-textfield {
+	vertical-align: top;
+}

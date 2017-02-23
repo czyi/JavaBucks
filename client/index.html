@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Java Bucks</title>
+	<link rel="shortcut icon" href="static/favicon.png">
+	<link rel="stylesheet" href="static/material.indigo-pink.min.css">
+	<link rel="stylesheet" href="static/style.css">
+	<script src="static/material.min.js"></script>
+	<script src="https://api.map.baidu.com/api?v=2.0&ak=GoHob6ya5ALHX6F7aF0Xdg1jNmDOvUij&s=1"></script>
+</head>
+<body>
+<div id="main">
+	<header>{{title}}</header>
+	<mdl-tabs v-model="tab">
+		<mdl-tab :tab="{title: 'Map', id: 1}">
+			<bmap ref="bmap" :model="bucks"></bmap>
+		</mdl-tab>
+		<mdl-tab :tab="{title: 'List', id: 2}">
+			<div id="jb-list">
+				<div class="mdl-card mdl-shadow--2dp buck-card"
+					v-for="buck in bucks"
+					@click="focus(buck._id)">
+					<div class="mdl-card__title">
+						<h2 class="mdl-card__title-text">{{buck.name}}</h2>
+					</div>
+					<div class="mdl-card__supporting-text">{{buck.description}}</div>
+				</div>
+			</div>
+		</mdl-tab>
+	</mdl-tabs>
+	<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
+		id="jb-enter" @click="$refs.dialog.open()" v-show="coords.latitude">
+		<i class="material-icons">add</i>
+	</button>
+	<mdl-dialog ref="dialog" title="录入新的咖啡店">
+		<form action="#">
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<input class="mdl-textfield__input" type="text" v-model="upload.name">
+				<label class="mdl-textfield__label">店名</label>
+			</div>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				<textarea class="mdl-textfield__input" type="text" rows="1" v-model="upload.description"></textarea>
+				<label class="mdl-textfield__label">更多描述</label>
+			</div>
+		</form>
+		<template slot="actions">
+			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+				@click="submit">录入</button>
+			<button class="mdl-button mdl-js-button mdl-js-ripple-effect" @click="$refs.dialog.close()">关闭</button>
+		</template>
+	</mdl-dialog>
+	<mdl-snackbar display-on="message"></mdl-snackbar>
+</div>
+</body>
+<script src="/dist/build.js"></script>
+</html>
